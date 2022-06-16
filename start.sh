@@ -49,18 +49,7 @@ cat <<EOF > /etc/hysteria/config.json
   "disable_udp": false,
   "cert": "/etc/hysteria/$domain.crt",
   "key": "/etc/hysteria/$domain.key",
-  "auth": {
-    "mode": "password",
-    "config": {
-      "password": "$auth_str"
-    }
-  },
-  "alpn": "h3",
-  "recv_window_conn": $r_conn,
-  "recv_window_client": $r_client,
-  "max_conn_client": 4096,
-  "disable_mtu_discovery": false,
-  "resolver": "8.8.8.8:53"
+  "obfs": "$auth_str"
 }
 EOF
 
@@ -71,27 +60,17 @@ cat <<EOF > config.json
 "up_mbps": $upload,
 "down_mbps": $download,
 "http": {
-"listen": "127.0.0.1:8888",
-"timeout" : 300,
-"disable_udp": false
+"listen": "127.0.0.1:8888"
 },
 "socks5": {
-"listen": "127.0.0.1:8889",
-"timeout": 300,
-"disable_udp": false,
-"user": "g6813",
-"password": "g6813"
+"listen": "127.0.0.1:8889"
 },
 "alpn": "h3",
 "acl": "acl/routes.acl",
 "mmdb": "acl/Country.mmdb",
-"auth_str": "$auth_str",
+"obfs": "$auth_str",
 "server_name": "$domain",
 "insecure": true,
-"recv_window_conn": $r_conn,
-"recv_window": $r_client,
-"disable_mtu_discovery": false,
-"resolver": "223.5.5.5:53",
 "retry": 5,
 "retry_interval": 3
 }
