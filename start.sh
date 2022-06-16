@@ -79,8 +79,8 @@ cat <<EOF > config.json
 "listen": "127.0.0.1:8889",
 "timeout": 300,
 "disable_udp": false,
-"user": "pekora",
-"password": "pekopeko"
+"user": "g6813",
+"password": "g6813"
 },
 "alpn": "h3",
 "acl": "acl/routes.acl",
@@ -91,7 +91,7 @@ cat <<EOF > config.json
 "recv_window_conn": $r_conn,
 "recv_window": $r_client,
 "disable_mtu_discovery": false,
-"resolver": "119.29.29.29:53",
+"resolver": "223.5.5.5:53",
 "retry": 5,
 "retry_interval": 3
 }
@@ -108,7 +108,7 @@ cat <<EOF > /etc/hysteria/config.json
     "domains": [
 	"$domain"
     ],
-    "email": "pekora@$domain"
+    "email": "g6813@$domain"
   },
   "disable_udp": false,
   "auth": {
@@ -141,8 +141,8 @@ cat <<EOF > config.json
 "listen": "127.0.0.1:8889",
 "timeout": 300,
 "disable_udp": false,
-"user": "pekora",
-"password": "pekopeko"
+"user": "g6813",
+"password": "g6813"
 },
 "alpn": "h3",
 "acl": "acl/routes.acl",
@@ -153,7 +153,7 @@ cat <<EOF > config.json
 "recv_window_conn": $r_conn,
 "recv_window": $r_client,
 "disable_mtu_discovery": false,
-"resolver": "119.29.29.29:53",
+"resolver": "223.5.5.5:53",
 "retry": 5,
 "retry_interval": 3
 }
