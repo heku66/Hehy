@@ -49,7 +49,18 @@ cat <<EOF > /etc/hysteria/config.json
   "disable_udp": false,
   "cert": "/etc/hysteria/$domain.crt",
   "key": "/etc/hysteria/$domain.key",
-  "obfs": "$auth_str"
+  "auth": {
+    "mode": "password",
+    "config": {
+      "password": "$auth_str"
+    }
+  },
+  "alpn": "h3",
+  "recv_window_conn": $r_conn,
+  "recv_window_client": $r_client,
+  "max_conn_client": 4096,
+  "disable_mtu_discovery": false,
+  "resolver": "8.8.8.8:53"
 }
 EOF
 
@@ -60,17 +71,27 @@ cat <<EOF > config.json
 "up_mbps": $upload,
 "down_mbps": $download,
 "http": {
-"listen": "127.0.0.1:8888"
+"listen": "127.0.0.1:8888",
+"timeout" : 300,
+"disable_udp": false
 },
 "socks5": {
-"listen": "127.0.0.1:8889"
+"listen": "127.0.0.1:8889",
+"timeout": 300,
+"disable_udp": false,
+"user": "pekora",
+"password": "pekopeko"
 },
 "alpn": "h3",
 "acl": "acl/routes.acl",
 "mmdb": "acl/Country.mmdb",
-"obfs": "$auth_str",
+"auth_str": "$auth_str",
 "server_name": "$domain",
 "insecure": true,
+"recv_window_conn": $r_conn,
+"recv_window": $r_client,
+"disable_mtu_discovery": false,
+"resolver": "119.29.29.29:53",
 "retry": 5,
 "retry_interval": 3
 }
@@ -87,7 +108,7 @@ cat <<EOF > /etc/hysteria/config.json
     "domains": [
 	"$domain"
     ],
-    "email": "g6813@$domain"
+    "email": "pekora@$domain"
   },
   "disable_udp": false,
   "auth": {
@@ -120,8 +141,8 @@ cat <<EOF > config.json
 "listen": "127.0.0.1:8889",
 "timeout": 300,
 "disable_udp": false,
-"user": "g6813",
-"password": "g6813"
+"user": "pekora",
+"password": "pekopeko"
 },
 "alpn": "h3",
 "acl": "acl/routes.acl",
@@ -132,7 +153,7 @@ cat <<EOF > config.json
 "recv_window_conn": $r_conn,
 "recv_window": $r_client,
 "disable_mtu_discovery": false,
-"resolver": "223.5.5.5:53",
+"resolver": "119.29.29.29:53",
 "retry": 5,
 "retry_interval": 3
 }
